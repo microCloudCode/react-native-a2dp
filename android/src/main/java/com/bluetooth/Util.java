@@ -10,7 +10,6 @@ public class Util {
         WritableMap params = Arguments.createMap();
 
         params.putString("name", device.getName());
-        params.putString("address", device.getAddress());
         params.putString("id", device.getAddress());
 
         if (device.getBluetoothClass() != null) {

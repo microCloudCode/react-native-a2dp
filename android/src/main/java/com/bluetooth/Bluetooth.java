@@ -22,7 +22,6 @@ import java.util.Set;
  */
 public class Bluetooth {
     public BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-    private Promise mDeviceDiscoveryPromise=null;//设备发现钩子
     private Promise connectPromise=null;//连接钩子
     private ReactApplicationContext mReactContext;
     private BluetoothService bluetoothService;
@@ -50,8 +49,7 @@ public class Bluetooth {
     }
 
     // 发现未配对设备
-    public void discoverUnpairedDevices(Promise promise) {
-        mDeviceDiscoveryPromise = promise;
+    public void discoverUnpairedDevices() {
         bluetoothAdapter.startDiscovery();
     }
 
@@ -96,7 +94,7 @@ public class Bluetooth {
                 A2dpModule.sendEvent("device", d);
             }
             if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {//搜索结束
-                mDeviceDiscoveryPromise.resolve("搜索结束");
+                A2dpModule.sendEvent("scanStop", "");
             }
 
             if(BluetoothA2dp.ACTION_CONNECTION_STATE_CHANGED.equals(action)){//蓝牙连接成功

@@ -40,11 +40,12 @@ public class A2dpModule extends ReactContextBaseJavaModule {
     }
 
     /**
-     * 发现未配对设备
+     * 扫描未配对的设备
      */
     @ReactMethod
-    public void discoverUnpairedDevices(Promise promise) {
-        bluetooth.discoverUnpairedDevices(promise);
+    public void scan(Promise promise) {
+        bluetooth.discoverUnpairedDevices();
+        promise.resolve(true);
     }
 
     /**
