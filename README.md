@@ -31,7 +31,7 @@ A2dp.startBluetoothSco();//开启SCO
 - `id` - `String` - 蓝牙设备ID
 
 ### disconnectA2dp()
-断开连接。该方法会立即返回`Promise`，不可用于已断开判断
+断开连接。该方法会立即返回`Promise`，不可用于判断是否已断开
 
 ### startBluetoothSco()
 开启SCO通道。返回一个`Promise` 开启之后即可通过蓝牙设备采集音频数据

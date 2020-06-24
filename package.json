@@ -1,7 +1,7 @@
 {
   "name": "react-native-a2dp",
   "title": "React Native A2dp",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "可直接连接A2DP和开启SCO",
   "main": "index.js",
   "files": [
