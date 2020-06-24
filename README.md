@@ -1,8 +1,11 @@
 # react-native-a2dp
 
-## Getting started
+## 开始
 
 `$ npm install react-native-a2dp --save`
+
+## 支持平台
++ Android
 
 ### Mostly automatic installation
 

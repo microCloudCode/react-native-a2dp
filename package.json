@@ -1,7 +1,7 @@
 {
   "name": "react-native-a2dp",
   "title": "React Native A2dp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "可直接连接A2DP和开启SCO",
   "main": "index.js",
   "files": [
@@ -16,8 +16,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github_account/react-native-a2dp.git",
-    "baseUrl": "https://github.com/github_account/react-native-a2dp"
+    "url": "git+https://github.com/microCloudCode/react-native-a2dp.git",
+    "baseUrl": "https://github.com/microCloudCode/react-native-a2dp"
   },
   "keywords": [
     "react-native"
