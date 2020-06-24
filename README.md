@@ -1,20 +1,18 @@
 # react-native-a2dp
 
-## 开始
-
-`$ npm install react-native-a2dp --save`
-
 ## 支持平台
 + Android
 
-### Mostly automatic installation
+## 安装
 
-`$ react-native link react-native-a2dp`
+`$ npm install react-native-a2dp --save`
 
-## Usage
+
+## 例子
 ```javascript
 import A2dp from 'react-native-a2dp';
 
-// TODO: What to do with the module?
-A2dp;
+let deviceList = await A2dp.deviceList()//获取已匹配列表
+await A2dp.connectA2dp(deviceList[0].id)//连接A2DP
+A2dp.startBluetoothSco();//开启SCO
 ```
