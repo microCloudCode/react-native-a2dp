@@ -100,12 +100,16 @@ public class Bluetooth {
             if(BluetoothA2dp.ACTION_CONNECTION_STATE_CHANGED.equals(action)){//蓝牙连接成功
                 int currentState= intent.getIntExtra(BluetoothA2dp.EXTRA_STATE, -1);//当前状态
                 if(currentState == BluetoothA2dp.STATE_CONNECTED) {//连接成功
-                    connectPromise.resolve("A2dp连接成功");
+                    if (connectPromise != null) {
+                        connectPromise.resolve("A2dp连接成功");
+                    }
                     A2dpModule.sendEvent("connectSucceeded", "");
                 }
                 if(currentState == BluetoothA2dp.STATE_DISCONNECTED){//断开连接
                     A2dpModule.sendEvent("connectDisconnect", "");
-                    connectPromise.reject("连接失败");
+                    if (connectPromise != null) {
+                        connectPromise.reject("连接失败");
+                    }
                 }
             }
 
