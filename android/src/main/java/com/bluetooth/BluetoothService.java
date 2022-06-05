@@ -18,21 +18,23 @@ class BluetoothService extends Thread {
     public BluetoothService(ReactApplicationContext reactContext, BluetoothAdapter bluetoothAdapter) {
         this.bluetoothAdapter = bluetoothAdapter;
         // 获取配置代理对象
-        bluetoothAdapter.getProfileProxy(reactContext, new BluetoothProfile.ServiceListener() {
-            @Override
-            public void onServiceConnected(int profile, BluetoothProfile proxy) {
-                if (profile == BluetoothProfile.A2DP) {
-                    mA2dp = (BluetoothA2dp) proxy;
+        if (bluetoothAdapter != null) {
+            bluetoothAdapter.getProfileProxy(reactContext, new BluetoothProfile.ServiceListener() {
+                @Override
+                public void onServiceConnected(int profile, BluetoothProfile proxy) {
+                    if (profile == BluetoothProfile.A2DP) {
+                        mA2dp = (BluetoothA2dp) proxy;
+                    }
                 }
-            }
 
-            @Override
-            public void onServiceDisconnected(int profile) {
-                if (profile == BluetoothProfile.A2DP) {
-                    mA2dp = null;
+                @Override
+                public void onServiceDisconnected(int profile) {
+                    if (profile == BluetoothProfile.A2DP) {
+                        mA2dp = null;
+                    }
                 }
-            }
-        }, BluetoothProfile.A2DP);
+            }, BluetoothProfile.A2DP);
+        }
     }
 
     // 连接至A2dp
